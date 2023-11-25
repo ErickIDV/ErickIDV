@@ -1,0 +1,50 @@
+import random
+Computer_point = 0
+User_point = 0
+
+options = ('piedra','papel','tijera')
+
+print('Bienvenido al juego de piedra papel o tijera ')
+
+while Computer_point < 3 and User_point < 3:
+  print('puntos de usuario: ',User_point)
+  print('puntos de computadora: ',Computer_point)
+
+  User_option = input('Ingresa tu jugada: ')
+  User_option = User_option.lower()
+  
+  Computer_option = random.choice(options)
+  
+  print('User Option = ',User_option)
+  print('Computer Option = ',Computer_option)
+  
+  if User_option == Computer_option:
+    print('Empate,')
+  elif User_option == 'piedra':
+    if Computer_option == 'papel':
+      Computer_point += 1
+      print('Perdiste')
+    else: 
+      print('Ganaste')
+      User_point += 1
+  
+  elif User_option == 'papel':
+    if Computer_option == 'tijera':
+      Computer_point += 1
+      print('Perdiste')
+    else: 
+      print('Ganaste')
+      User_point += 1
+  
+  elif User_option == 'tijera':
+    if Computer_option == 'piedra':
+      print('Perdiste')
+      Computer_point += 1
+    else: 
+      User_point += 1
+      print('Ganaste')
+  else: print('Entrada no valida')
+
+if User_point > Computer_point:
+  print('Felicidades Ganaste el juego')
+else: print('Perdiste pinche perdedor jajaja no se ni como vive pinche basura')
